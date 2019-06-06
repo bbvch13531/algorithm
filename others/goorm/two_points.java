@@ -14,7 +14,7 @@ import java.io.*;
  * - 모든 입력과 출력은 System.in과 System.out 스트림을 이용해야 합니다.
  */
 
-public class Main{
+public class two_points{
 
     //표준입력을 수행할 Scanner를 선언한다 
     public static Scanner scanner = new Scanner(System.in);

@@ -1,4 +1,4 @@
 main
 a.out
 .vscode
-.class
+*.class

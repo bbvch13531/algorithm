@@ -27,25 +27,28 @@ int main(void){
 //if(s > e)		swap(&s, &e);
 
 		adj[s].push_back(e);
+
+		adj[e].push_back(s);
 	}
 	//printadj();
 		dfs(1, 1);
-	/*
-	printf("afterdfs\n");
+	
 	parent[1][0] = 1;
-	for(int i=0; i<=maxLevel; i++){
+	/*
+		for(int i=1; i<=N; i++)
+		printf("%d ",level[i]);
+	printf("\n");
+*/	
+	makeParent();
+	/*
+for(int i=0; i<=maxLevel; i++){
 		for(int j=0; j<=N; j++){
 			printf("%d ",parent[j][i]);
 		}
 		printf("\n");
 	}
 	printf("\n");
-	for(int i=1; i<=N; i++)
-		printf("%d ",level[i]);
-	printf("\n");
-	*/
-	makeParent();
-
+*/
 	scanf("%d", &M);
 	//printf("M = %d\n", M);
 	
@@ -62,8 +65,8 @@ int main(void){
 
 				q1 = parent[q1][i];
 
-				 //printf("q2lv = %d, parent q1lv = %d, q1 = %d, q2 = %d, parent q1 = %d (1 << i) = %d\n",level[q2], level[parent[q1][i]], q1, q2, parent[q1][i], 1 << i);
-				 //printf("after up. q1 = %d, level q1 = %d, i = %d\n", q1, level[q1], i);
+	//			 printf("q2lv = %d, parent q1lv = %d, q1 = %d, q2 = %d, parent q1 = %d (1 << i) = %d\n",level[q2], level[parent[q1][i]], q1, q2, parent[q1][i], 1 << i);
+		//		 printf("after up. q1 = %d, level q1 = %d, i = %d\n", q1, level[q1], i);
 			}
 		}
 		//printf("after match, level[%d] = %d, level[%d] = %d\n", q1, level[q1], q2, level[q2]);
@@ -92,7 +95,7 @@ int main(void){
 }
 
 void makeParent(){
-	parent[1][0] = 1;
+	//parent[1][0] = 1;
 	for(int i=1; i<=maxLevel; i++){
 		for(int j=1; j<=N; j++){
 			parent[j][i] = parent[parent[j][i-1]][i-1];
@@ -114,8 +117,11 @@ void dfs(int x, int l){
 //	printf("dfs: level[%d] = %d\n", x, l);
 	for(int next: adj[x]){
 	//printf("dfs: next=%d\n", next);
+		if(!visit[next]){
+			visit[next] = true;
 			parent[next][0] = x;
 			dfs(next, l+1);
+		}
 	}
 }
 

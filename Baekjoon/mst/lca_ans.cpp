@@ -4,7 +4,7 @@
 #define MAX_N 100000
 using namespace std;
 int n, m, par[MAX_N + 1][21], x, y, visited[MAX_N + 1], d[MAX_N + 1];
-vector<vector<int>> vt;
+vector<vector<int> > vt;
 void dfs(int here,int depth) {
     visited[here] = true;
     d[here] = depth;

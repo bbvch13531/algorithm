@@ -32,6 +32,7 @@ int main(void){
 
     cin>> N>> M>> K;
     
+		// calculate tree height
     while(1){
         if(pow(2, tree_height) >= N)
             break;
@@ -43,6 +44,7 @@ int main(void){
         input.push_back(num);
     }
 
+		// build seg tree
     init(0, N-1, 0);
 
     for(int i=0; i<M+K; i++){
@@ -68,6 +70,11 @@ ll init(int l, int r, int i){
     }
 }
 
+// update
+// l: left index
+// r: right index
+// i: index of node to be updated
+// diff: difference
 void update(int l, int r, int i, ll diff){
     int m = (l + r) / 2;
     if(i < l || r < i) return;
@@ -79,6 +86,12 @@ void update(int l, int r, int i, ll diff){
     }
 }
 
+// get_sum
+// l: left index
+// r: right index
+// i: index of node
+// a: from a
+// b: to b
 ll get_sum(int l, int r, int i, int a, int b){
     int m = (l+r)/2;
     if(l >  b || r < a){

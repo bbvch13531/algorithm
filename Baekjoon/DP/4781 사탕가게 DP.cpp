@@ -27,11 +27,13 @@ int main(void){
             cin>>calory[i]>>buf;
             price[i]=(int)(buf*100+0.5);
         }
+
         for(int i=1;i<=N;i++){
             for(int j=0;j<=M;j++){
                 if(j>=price[i]) dp[j]=max(dp[j] , dp[j - price[i]] + calory[i]);
             }
         }
+
         maxV=-1;
         for(int i=1;i<=M;i++){
             maxV = max(maxV, dp[i]);

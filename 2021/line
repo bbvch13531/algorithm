@@ -1,0 +1,126 @@
+#include <string>
+#include <vector>
+#include <iostream>
+#include <map>
+
+#define NUMBER_TYPE 0
+#define STRING_TYPE 1
+
+#define BOOLEAN_TYPE 2
+
+using namespace std;
+
+typedef struct _Rule {
+    string name;
+    vector<pair<string, int> > flag_type;
+} Rule;
+
+typedef struct _Command {
+    string name;
+    map<string, int> number_flag;
+    map<string, string> char_flag;
+    map<string, bool> boolean_flag;
+} Command;
+
+bool validate(string program, Rule rule, Command command);
+bool check_program_name(string program, string input);
+Rule analyse_flag_rule(string program, vector<string> flag_rules);
+int argument_name_to_type(string arg_name);
+Command analyse_command(string cmd_str);
+
+vector<bool> solution(string program, vector<string> flag_rules, vector<string> commands) {
+    vector<bool> answer;
+    
+    // Analyse flag rule
+    // Rule rule = analyse_flag_rule(program, flag_rules);
+    
+    // Validate commmands
+    for(string cmd_str: commands) {
+        Command command = analyse_command(cmd_str);
+        // bool result = validate(program, rule, command);
+        // cout << command << endl;
+    }
+    return answer;
+}
+
+Rule analyse_flag_rule(string program, vector<string> flag_rules) {
+    Rule rule;
+    rule.name = program;
+    
+    for(string str:flag_rules) {
+        // "-s STRING"
+        string flag_name, arg_name;
+        for(int i=0; i<str.length(); i++) {
+            
+            if(str[i] == ' ') {
+                flag_name = str.substr(1,i);
+                arg_name = str.substr(i+1,str.length());
+                // cout <<"flag_name="<<flag_name << ",flag_type=" << arg_name << endl;
+            }
+        }
+        int arg_type = argument_name_to_type(arg_name);
+        rule.flag_type.push_back({flag_name, arg_type});
+    }
+    for(pair<string, int> r:rule.flag_type) {
+        // cout << r.first << r.second <<endl;
+    }
+    return rule;
+}
+
+int argument_name_to_type(string arg_name) {
+    if(arg_name == "NUMBER"){
+        return NUMBER_TYPE;
+    } else if(arg_name == "STRING"){
+        return STRING_TYPE;
+    } else if(arg_name == "NULL"){
+        return BOOLEAN_TYPE;
+    }
+}
+
+Command analyse_command(string cmd_str) {
+    Command command;
+    vector <string> splited;
+    string flag_name, arg_name;
+    
+    string s1 = cmd_str;
+    while(1) {
+        int i1 = s1.find(' ');
+        if(i1 == -1)
+            break;
+        string r1 = s1.substr(0, i1);
+        splited.push_back(r1);
+        cout << r1 << endl;
+        s1 = s1.substr(i1+1, s1.length()); 
+    }
+    // split by space
+    cout <<"flag_name="<<flag_name << ",flag_type=" << arg_name << endl;
+    
+//     for(int i=0; i<cmd_str.length(); i++) {
+            
+//         if(cmd_str[i] == ' ') {
+//             // flag_name = cmd_str.substr(1,i);
+//             arg_name = cmd_str.substr(i+1,cmd_str.length());
+            
+//         }
+//     }
+    // split by dash
+    return command;
+}
+
+bool validate(string program, Rule rule, Command command) {
+    // Parse command
+    
+    // if(check_program_name(program))
+    return true;
+}
+
+bool check_program_name(string program, string input) {
+    if(program.compare(input) == 0) { // match
+        return true;
+    }
+    return false;
+}
+
+s 
+ n 
+ e 

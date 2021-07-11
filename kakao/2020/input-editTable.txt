@@ -1,0 +1,61 @@
+5 0 14
+D 4
+C
+C
+U 2
+Z
+D 1
+C
+C
+U 1
+C
+C
+Z
+Z
+Z
+
+5 0 3
+D 1
+D 2
+U 3
+
+
+5 0 13
+C
+C
+D 2
+C
+Z
+Z
+C
+Z
+Z
+U 2
+D 2
+C
+Z
+
+8 2 11
+D 2
+C
+U 3
+C
+D 4
+C
+U 2
+Z
+Z
+U 1
+C
+
+
+8 2 9
+D 2
+C
+U 3
+C
+D 4
+C
+U 2
+Z
+Z

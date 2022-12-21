@@ -15,18 +15,9 @@
 const int INF = 0x7f7f7f7f;
 using namespace std;
 
-set <string> s;
 unordered_map <string, int> m;
 vector <int> numbers;
 
-// bool check(int l, int r, vector<string> gems){
-//     // gems의 l부터 r까지 모든 보석이 하나씩 포함되어 있는지 확인함
-//     if(m.size() == s.size()){
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
 bool check(int l, int r){
     for(auto x: m){
         if(x.second == 0){
@@ -45,33 +36,25 @@ vector<int> solution(vector<string> gems) {
     int cnt=0;
 
     for(string gem: gems){
-        if(s.find(gem) == s.end()){
-            s.insert(gem);
+        if(m.find(gem) == m.end()){  
+            m[gem] = 0;
         }
     }
 
     // m[gems[0]] = 1;
     while(r < len && l < len) {
-        while(r < len && !check(l, r, gems)){
-            if(m.find(gems[r]) != m.end()){ // 존재하면
-                m[gems[r]]++;   // r번째 gem 개수를 증가시킴
-            } else {    //존재하지 않으면
-                m[gems[r]] = 1; // 0으로 초기화
-            }
+        while(r < len && !check(l, r)){
+            m[gems[r]]++;   // r번째 gem 개수를 증가시킴
 
             r++;
             if(r == len) break;
         }
 
-        while(l < len && check(l, r, gems)){
+        while(l < len && check(l, r)){
              // l을 오른쪽으로 이동하기 위해
             m[gems[l]]--;
 
-            if(m[gems[l]] == 0){ // 만약 gem 개수가 0이 되면
-                m.erase(gems[l]);
-            }
             l++;
-            if(l == len) break;
         }
         if(l == len) break;
         if(r-l < minRange){
@@ -80,7 +63,6 @@ vector<int> solution(vector<string> gems) {
             answer[1] = r;
         }
     }
-    // cout << answer[0] <<"\n";
     return answer;
 }
 

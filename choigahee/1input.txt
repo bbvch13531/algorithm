@@ -1,0 +1,28 @@
+5 1
+vvv.busan
+dongdaegu.miryang
+gupo.busan
+123.mugunghwa
+12a.jpg
+jpg
+
+5 3
+abc.jpeg
+abc.jpg
+foo.yolo
+bar.cpp
+bar.maltise
+jpg
+cpp
+maltise
+
+6 3
+abc.aaa
+abc.ccc
+abc.bbb
+foo.yolo
+bar.cpp
+bar.maltise
+jpg
+maltise
+cpp

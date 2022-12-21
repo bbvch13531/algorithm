@@ -1,0 +1,43 @@
+5 2
+c
+e
+cc
+ee
+ccc
+a,b,c,d,e,f
+e,ee,eee,a,bb,d,cd,c,ccc,cc
+
+
+5 3
+map
+set
+dijkstra
+floyd
+a b
+map,dijkstra
+map,floyd
+set,a b
+
+1 1
+aaa
+abc,deeeeef,lmyxp,aaa
+
+5 2
+map
+set
+dijkstra
+floyd
+os
+map,dijkstra
+map,floyd
+
+2 2
+gt26cw
+1211train
+kiwoom,lottegiant
+kbo
+
+1 1
+aaa
+aaa
+
